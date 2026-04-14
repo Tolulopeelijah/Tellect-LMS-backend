@@ -2,9 +2,27 @@ from django.utils import timezone
 from rest_framework import status
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from rest_framework.permissions import IsAuthenticated
+from rest_framework.permissions import IsAuthenticated, AllowAny
 from .models import CBTExam, Question, CBTAttempt, QuestionAnswer
 from .serializers import CBTExamSerializer, QuestionSerializer, CBTAttemptSerializer
+
+
+class CbtHomeView(APIView):
+    permission_classes = [AllowAny]
+
+    def get(self, request):
+        return Response({
+            "name": "Tellect LMS CBT API",
+            "endpoints": {
+                "course_exams": "course/<int:course_id>/",
+                "exam_detail": "<int:exam_id>/",
+                "start_exam": "<int:exam_id>/start/",
+                "attempt_detail": "attempt/<int:attempt_id>/",
+                "save_answer": "attempt/<int:attempt_id>/answer/",
+                "submit": "attempt/<int:attempt_id>/submit/",
+                "auto_submit": "attempt/<int:attempt_id>/auto-submit/",
+            },
+        })
 
 
 class CourseExamsView(APIView):
