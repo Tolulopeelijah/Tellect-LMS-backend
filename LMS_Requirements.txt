@@ -1,0 +1,504 @@
+LMS BACKEND
+Requirements Specification
+Version 1.0  •  14 April 2026
+IMPLEMENTATION PHASE LEGEND
+MVP — Phase 1
+Phase 2
+Phase 3
+1. Functional Requirements
+Functional requirements define what the system must do — its features and behaviours.
+1.1  Authentication & Authorization
+#
+Requirement
+Description
+Phase
+FR-01
+User Registration
+Register via email/password with email verification flow
+MVP
+FR-02
+User Login
+Authenticate and receive a signed JWT (access + refresh tokens)
+MVP
+FR-03
+OAuth Login
+Sign in with Google and/or GitHub via OAuth 2.0
+Phase 2
+FR-04
+Role-Based Access Control
+Roles: Student, Instructor, Admin — enforced on all routes
+MVP
+FR-05
+Password Reset
+Forgot-password flow via email with time-limited token
+MVP
+FR-06
+Multi-Factor Authentication
+TOTP-based 2FA (Google Authenticator compatible)
+Phase 2
+FR-07
+Session Management
+Refresh token rotation and forced logout on all devices
+MVP
+FR-08
+Account Deactivation
+Soft-delete / suspend accounts from admin panel
+Phase 2
+1.2  User Management
+#
+Requirement
+Description
+Phase
+FR-09
+Profile CRUD
+Users can view and update their name, bio, and avatar
+MVP
+FR-10
+Avatar Upload
+Profile picture upload with image resizing (stored in object storage)
+MVP
+FR-11
+Admin User List
+Admins can search, filter, and manage all user accounts
+MVP
+FR-12
+Instructor Onboarding
+Workflow for users to apply and be approved as instructors
+Phase 2
+1.3  Course Management
+#
+Requirement
+Description
+Phase
+FR-13
+Create / Edit Course
+Instructors create courses with title, description, thumbnail, category
+MVP
+FR-14
+Course Sections & Lessons
+Hierarchical structure: Course → Sections → Lessons
+MVP
+FR-15
+Publish / Unpublish
+Draft vs Published state; only published courses visible to students
+MVP
+FR-16
+Course Pricing
+Set free or paid price; integrates with payment module
+MVP
+FR-17
+Prerequisites
+Define prerequisite courses before a student can enrol
+Phase 2
+FR-18
+Course Visibility
+Public, private, or invite-only course visibility settings
+Phase 2
+FR-19
+Admin Course Approval
+Admin must approve courses before they go live
+Phase 2
+FR-20
+Course Archiving
+Soft-archive old courses without deleting content or data
+Phase 3
+1.4  Content Delivery
+#
+Requirement
+Description
+Phase
+FR-21
+Video Upload & Streaming
+Upload video to cloud storage; serve via CDN or signed URL
+MVP
+FR-22
+File Attachments
+Instructors can attach PDFs, ZIPs, links to lessons
+MVP
+FR-23
+Rich Text Content
+Lessons support rich text via WYSIWYG editor (stored as HTML/JSON)
+MVP
+FR-24
+Lesson Progress Tracking
+Track and persist per-user lesson completion status
+MVP
+FR-25
+Video Resume Playback
+Store last playback position so students resume where they left off
+Phase 2
+FR-26
+Downloadable Resources
+Students can download attached resources for offline use
+Phase 2
+1.5  Enrollment
+#
+Requirement
+Description
+Phase
+FR-27
+Enroll in Course
+Student enrols (free) or purchases (paid) access to a course
+MVP
+FR-28
+Unenroll
+Student can unenrol (if policy allows) or admin can remove
+MVP
+FR-29
+Enrollment Limit
+Instructors can cap maximum number of students per course
+Phase 2
+FR-30
+Waitlist
+Auto waitlist when course is full; notify on available slot
+Phase 3
+FR-31
+Bulk Enrollment
+Admins can enrol a batch of users via CSV upload
+Phase 2
+1.6  Payment Gateway
+#
+Requirement
+Description
+Phase
+FR-32
+Checkout Flow
+Initiate payment for a paid course; redirect to payment provider
+MVP
+FR-33
+Payment Provider Integration
+Integrate Paystack and/or Flutterwave (Nigeria-friendly) + Stripe
+MVP
+FR-34
+Payment Webhooks
+Handle success, failure, and dispute webhook events securely
+MVP
+FR-35
+Refund Handling
+Process full/partial refunds; revoke course access on refund
+Phase 2
+FR-36
+Coupon / Discount Codes
+Create and apply percentage or fixed discount codes at checkout
+Phase 2
+FR-37
+Transaction History
+Students and admins can view full payment/transaction logs
+MVP
+FR-38
+Instructor Payouts
+Track revenue per instructor; generate payout reports
+Phase 3
+1.7  Assessments & Quizzes
+#
+Requirement
+Description
+Phase
+FR-39
+Create Quiz
+Instructors create quizzes with MCQ, true/false, short answer
+MVP
+FR-40
+Auto-Grading
+MCQ and true/false questions auto-graded on submission
+MVP
+FR-41
+Submission Tracking
+Store all quiz attempts per student with timestamps and scores
+MVP
+FR-42
+Retake Policy
+Configurable max retake attempts and cooldown period
+Phase 2
+FR-43
+Assignment Upload
+Students upload files as assignment submissions
+Phase 2
+FR-44
+Manual Grading
+Instructors grade open-ended assignments with feedback
+Phase 2
+FR-45
+Grade Book
+Instructor view of all student grades per course
+Phase 2
+1.8  Certificates
+#
+Requirement
+Description
+Phase
+FR-46
+Auto-generate Certificate
+Issue a PDF certificate on 100% course completion
+Phase 2
+FR-47
+Certificate Templates
+Admins can configure certificate templates with branding
+Phase 2
+FR-48
+Certificate Verification
+Public endpoint to verify a certificate by unique ID
+Phase 3
+1.9  Notifications
+#
+Requirement
+Description
+Phase
+FR-49
+Email Notifications
+Transactional emails: welcome, payment receipt, course enrolled
+MVP
+FR-50
+New Content Alerts
+Notify enrolled students when instructor adds new lesson
+Phase 2
+FR-51
+In-App Notifications
+Bell icon with unread count; mark-as-read functionality
+Phase 2
+FR-52
+SMS Notifications
+Optional SMS alerts for key events (via Termii or Twilio)
+Phase 3
+1.10  Search & Discovery
+#
+Requirement
+Description
+Phase
+FR-53
+Course Search
+Full-text search on course title and description
+MVP
+FR-54
+Filter & Sort
+Filter by category, price (free/paid), level, rating; sort by date/popular
+MVP
+FR-55
+Recommendations
+Suggest courses based on enrolled history and category interest
+Phase 3
+1.11  Reviews & Ratings
+#
+Requirement
+Description
+Phase
+FR-56
+Submit Review
+Students who have enrolled can submit a star rating + text review
+Phase 2
+FR-57
+Instructor Response
+Instructors can reply publicly to individual reviews
+Phase 2
+FR-58
+Review Moderation
+Admins can flag and remove inappropriate reviews
+Phase 2
+1.12  Analytics & Reporting
+#
+Requirement
+Description
+Phase
+FR-59
+Student Progress Report
+Per-course progress: lessons done, quiz scores, time spent
+Phase 2
+FR-60
+Instructor Dashboard
+Enrolment count, revenue, completion rate per course
+Phase 2
+FR-61
+Admin Platform Stats
+Total users, total revenue, top courses, churn metrics
+Phase 3
+FR-62
+Revenue Reports
+Exportable CSV reports of transactions, payouts, refunds
+Phase 3
+2. Non-Functional Requirements
+Non-functional requirements define how well the system performs, scales, and maintains itself.
+2.1  Performance
+#
+Requirement
+Target / Measure
+Priority
+NFR-01
+API Response Time
+95th percentile of all REST responses < 300ms under normal load
+High
+NFR-02
+Throughput
+System handles 500 concurrent requests without degradation
+High
+NFR-03
+Video Upload
+100MB video upload completes within 60 seconds on average broadband
+Medium
+NFR-04
+Database Query Time
+No single query exceeds 100ms; all heavy queries use indexes
+High
+2.2  Scalability
+#
+Requirement
+Target / Measure
+Priority
+NFR-05
+Horizontal Scaling
+API servers must be stateless and scalable behind a load balancer
+High
+NFR-06
+Database Scaling
+Support read replicas; design for sharding if users exceed 100k
+Medium
+NFR-07
+Storage Scaling
+Use object storage (S3/Cloudinary) — no local disk dependency
+High
+NFR-08
+Caching
+Redis cache for sessions, frequent queries, and rate limiting counters
+Medium
+2.3  Security
+#
+Requirement
+Target / Measure
+Priority
+NFR-09
+Data Encryption in Transit
+All endpoints served over HTTPS/TLS 1.2+; no plaintext comms
+High
+NFR-10
+Data Encryption at Rest
+Sensitive fields (passwords, tokens) encrypted at database level
+High
+NFR-11
+Input Validation
+All user inputs validated and sanitised; parameterised DB queries only
+High
+NFR-12
+Rate Limiting
+Max 100 req/min per IP on public endpoints; stricter on auth routes
+High
+NFR-13
+Webhook Signature Verification
+Verify HMAC signature on all incoming payment webhooks
+High
+NFR-14
+Dependency Auditing
+Regular automated audit of npm/pip packages for known CVEs
+Medium
+NFR-15
+Secret Management
+No secrets in source code; use environment variables or Vault
+High
+2.4  Reliability & Availability
+#
+Requirement
+Target / Measure
+Priority
+NFR-16
+Uptime SLA
+99.9% uptime (< 8.7 hrs downtime/year)
+High
+NFR-17
+Graceful Degradation
+Non-critical services (recommendations, analytics) fail silently
+Medium
+NFR-18
+Health Check Endpoints
+GET /health and /ready endpoints for load balancer probes
+High
+NFR-19
+Background Job Retry
+Failed jobs (emails, webhooks) retry with exponential backoff
+Medium
+2.5  Maintainability & Code Quality
+#
+Requirement
+Target / Measure
+Priority
+NFR-20
+Code Coverage
+Unit and integration tests cover at least 70% of business logic
+Medium
+NFR-21
+API Documentation
+All endpoints documented with Swagger/OpenAPI 3.0
+High
+NFR-22
+Logging
+Structured JSON logs with request ID, user ID, and error stack trace
+High
+NFR-23
+Error Tracking
+Integrate Sentry or equivalent for real-time error alerting
+Medium
+NFR-24
+Environment Parity
+Dev, staging, and production use identical configs (Docker/IaC)
+Medium
+2.6  Data Management & Compliance
+#
+Requirement
+Target / Measure
+Priority
+NFR-25
+Data Backup
+Automated daily database backups with 30-day retention
+High
+NFR-26
+Backup Recovery Test
+Monthly restore test to verify backup integrity
+Medium
+NFR-27
+Data Privacy
+Users can request export or deletion of personal data (GDPR-ready)
+Medium
+NFR-28
+Data Retention Policy
+Define and enforce retention periods for logs, sessions, files
+Low
+NFR-29
+NDPR Awareness
+Align with Nigeria Data Protection Regulation where applicable
+Medium
+2.7  Observability & Monitoring
+#
+Requirement
+Target / Measure
+Priority
+NFR-30
+Metrics Collection
+Track p50/p95/p99 latency, error rates, and throughput per endpoint
+Medium
+NFR-31
+Alerting
+Alert on error rate > 1% or p95 latency > 500ms for 5 min
+Medium
+NFR-32
+Audit Logging
+Log all admin actions (user bans, approvals, refunds) immutably
+High
+3. Summary — Feature Count by Phase
+Phase
+Functional
+Non-Functional
+Total Items
+MVP (Phase 1)
+27 features
+Core NFRs (security, perf, availability)
+~27 FR + 12 NFR
+Phase 2
+22 features
+Caching, monitoring, GDPR readiness
+~22 FR + 8 NFR
+Phase 3
+9 features
+Observability, audit logging, NDPR
+~9 FR + 5 NFR
+Total
+58 features
+32 non-functional requirements
+90 total items
+This document is a living reference. Update phase assignments and add notes as requirements evolve during development.
