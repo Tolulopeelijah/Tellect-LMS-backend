@@ -1,7 +1,8 @@
 from django.urls import path
-from .views import CourseVideosView, VideoDetailView, VideoUploadView, UpdateWatchProgressView, RecentlyWatchedView, ApproveVideoView, RejectVideoView
+from .views import VideosHomeView, CourseVideosView, VideoDetailView, VideoUploadView, UpdateWatchProgressView, RecentlyWatchedView, ApproveVideoView, RejectVideoView
 
 urlpatterns = [
+    path('', VideosHomeView.as_view(), name='videos-home'),
     path('course/<int:course_id>/', CourseVideosView.as_view(), name='course-videos'),
     path('upload/', VideoUploadView.as_view(), name='video-upload'),
     path('recently-watched/', RecentlyWatchedView.as_view(), name='recently-watched'),

@@ -6,6 +6,24 @@ from .models import Video, VideoWatchProgress
 from .serializers import VideoSerializer, VideoUploadSerializer, VideoWatchProgressSerializer
 
 
+class VideosHomeView(APIView):
+    permission_classes = [AllowAny]
+
+    def get(self, request):
+        return Response({
+            "name": "Tellect LMS Videos API",
+            "endpoints": {
+                "course_videos": "course/<int:course_id>/",
+                "upload": "upload/",
+                "recently_watched": "recently-watched/",
+                "video_detail": "<int:pk>/",
+                "update_progress": "<int:pk>/update-progress/",
+                "approve": "<int:pk>/approve/",
+                "reject": "<int:pk>/reject/",
+            },
+        })
+
+
 class CourseVideosView(APIView):
     permission_classes = [IsAuthenticated]
 

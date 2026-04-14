@@ -1,7 +1,8 @@
 from django.urls import path
-from .views import CoursePDFsView, PDFDetailView, PDFUploadView, UpdatePDFProgressView, MyPDFProgressView
+from .views import PdfsHomeView, CoursePDFsView, PDFDetailView, PDFUploadView, UpdatePDFProgressView, MyPDFProgressView
 
 urlpatterns = [
+    path('', PdfsHomeView.as_view(), name='pdfs-home'),
     path('course/<int:course_id>/', CoursePDFsView.as_view(), name='course-pdfs'),
     path('upload/', PDFUploadView.as_view(), name='pdf-upload'),
     path('my-progress/', MyPDFProgressView.as_view(), name='pdf-my-progress'),

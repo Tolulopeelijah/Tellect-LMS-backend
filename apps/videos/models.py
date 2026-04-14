@@ -1,20 +1,6 @@
 from django.db import models
 from django.conf import settings
-from apps.courses.models import Course
-
-
-class VideoSection(models.Model):
-    course = models.ForeignKey(Course, on_delete=models.CASCADE, related_name='sections')
-    title = models.CharField(max_length=255)
-    order = models.IntegerField(default=0)
-
-    class Meta:
-        app_label = 'videos'
-        ordering = ['order']
-
-    def __str__(self):
-        return f'{self.course.title} - {self.title}'
-
+from apps.courses.models import Course, Lesson
 
 class Video(models.Model):
     STATUS_CHOICES = [
@@ -23,8 +9,7 @@ class Video(models.Model):
         ('rejected', 'Rejected'),
     ]
 
-    section = models.ForeignKey(VideoSection, on_delete=models.SET_NULL, null=True, blank=True, related_name='videos')
-    course = models.ForeignKey(Course, on_delete=models.CASCADE, related_name='videos')
+    lesson = models.ForeignKey(Lesson, on_delete=models.CASCADE, related_name='videos', null=True)
     title = models.CharField(max_length=255)
     description = models.TextField(blank=True)
     video_file = models.FileField(upload_to='videos/')
