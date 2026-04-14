@@ -10,7 +10,7 @@ class RegisterSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = User
-        fields = ['full_name', 'email', 'phone_number', 'university', 'department', 'level', 'password', 'confirm_password']
+        fields = ['full_name', 'email', 'phone_number', 'university', 'department', 'level', 'role', 'password', 'confirm_password']
 
     def validate_email(self, value):
         if User.objects.filter(email=value).exists():
@@ -50,5 +50,21 @@ class LoginSerializer(serializers.Serializer):
 class UserProfileSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ['id', 'full_name', 'email', 'phone_number', 'university', 'department', 'level', 'is_verified', 'date_joined']
-        read_only_fields = ['id', 'email', 'is_verified', 'date_joined']
+        fields = ['id', 'full_name', 'email', 'phone_number', 'university', 'department', 'level', 'role', 'bio', 'avatar', 'is_verified', 'date_joined']
+        read_only_fields = ['id', 'email', 'role', 'is_verified', 'date_joined']
+
+
+class PasswordResetRequestSerializer(serializers.Serializer):
+    email = serializers.EmailField()
+
+
+class PasswordResetConfirmSerializer(serializers.Serializer):
+    email = serializers.EmailField()
+    otp = serializers.CharField(max_length=6)
+    new_password = serializers.CharField(write_only=True, min_length=8)
+    confirm_password = serializers.CharField(write_only=True)
+
+    def validate(self, attrs):
+        if attrs['new_password'] != attrs['confirm_password']:
+            raise serializers.ValidationError({'confirm_password': 'Passwords do not match.'})
+        return attrs

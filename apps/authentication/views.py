@@ -7,7 +7,30 @@ from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework_simplejwt.tokens import RefreshToken
 from .models import User, OTPVerification
-from .serializers import RegisterSerializer, VerifyOTPSerializer, LoginSerializer, UserProfileSerializer
+from .serializers import (
+    RegisterSerializer, VerifyOTPSerializer, LoginSerializer, 
+    UserProfileSerializer, PasswordResetRequestSerializer, 
+    PasswordResetConfirmSerializer
+)
+
+    
+class AuthHomeView(APIView):
+    permission_classes = [AllowAny]
+
+    def get(self, request):
+        return Response({
+            "name": "Tellect LMS Auth API",
+            "endpoints": {
+                "register": "register/",
+                "verify_otp": "verify-otp/",
+                "login": "login/",
+                "logout": "logout/",
+                "token_refresh": "token/refresh/",
+                "profile": "profile/",
+                "password_reset": "password/reset/",
+                "password_reset_confirm": "password/reset/confirm/",
+            },
+        })
 
 
 class RegisterView(APIView):
@@ -128,3 +151,50 @@ class ProfileView(APIView):
             serializer.save()
             return Response(serializer.data)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+class PasswordResetRequestView(APIView):
+    permission_classes = [AllowAny]
+
+    def post(self, request):
+        serializer = PasswordResetRequestSerializer(data=request.data)
+        if serializer.is_valid():
+            email = serializer.validated_data['email']
+            try:
+                user = User.objects.get(email=email)
+                code = f'{random.randint(100000, 999999)}'
+                OTPVerification.objects.filter(user=user).delete()
+                OTPVerification.objects.create(user=user, code=code, is_used=False)
+                # In production, send this via email
+                return Response({'message': 'Password reset OTP sent to email.', 'otp': code}, status=status.HTTP_200_OK)
+            except User.DoesNotExist:
+                return Response({'message': 'Password reset OTP sent to email.'}, status=status.HTTP_200_OK)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+class PasswordResetConfirmView(APIView):
+    permission_classes = [AllowAny]
+
+    def post(self, request):
+        serializer = PasswordResetConfirmSerializer(data=request.data)
+        if serializer.is_valid():
+            email = serializer.validated_data['email']
+            code = serializer.validated_data['otp']
+            try:
+                user = User.objects.get(email=email)
+                otp = OTPVerification.objects.get(user=user)
+                
+                if otp.code != code:
+                    return Response({'error': 'Invalid OTP code.'}, status=status.HTTP_400_BAD_REQUEST)
+                
+                if not otp.is_valid():
+                    return Response({'error': 'OTP has expired or already been used.'}, status=status.HTTP_400_BAD_REQUEST)
+                
+                user.set_password(serializer.validated_data['new_password'])
+                user.save()
+                otp.is_used = True
+                otp.save()
+                
+                return Response({'message': 'Password reset successful.'}, status=status.HTTP_200_OK)
+            except (User.DoesNotExist, OTPVerification.DoesNotExist):
+                return Response({'error': 'Invalid OTP code.'}, status=status.HTTP_400_BAD_REQUEST)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+

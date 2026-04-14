@@ -29,12 +29,21 @@ class User(AbstractBaseUser, PermissionsMixin):
         ('500', '500 Level'),
     ]
 
+    ROLE_CHOICES = [
+        ('STUDENT', 'Student'),
+        ('INSTRUCTOR', 'Instructor'),
+        ('ADMIN', 'Admin'),
+    ]
+
     full_name = models.CharField(max_length=255)
     email = models.EmailField(unique=True)
     phone_number = models.CharField(max_length=20, blank=True)
     university = models.CharField(max_length=255, blank=True)
     department = models.CharField(max_length=255, blank=True)
     level = models.CharField(max_length=3, choices=LEVEL_CHOICES, blank=True)
+    role = models.CharField(max_length=20, choices=ROLE_CHOICES, default='STUDENT')
+    bio = models.TextField(blank=True, null=True)
+    avatar = models.ImageField(upload_to='avatars/', blank=True, null=True)
     is_verified = models.BooleanField(default=False)
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
