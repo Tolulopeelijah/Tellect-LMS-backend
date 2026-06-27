@@ -1,0 +1,2949 @@
+{
+  "info": {
+    "name": "API Collection",
+    "description": "API description for Tellect LMS",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Default",
+      "item": [
+        {
+          "name": "root_retrieve",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [],
+              "variable": []
+            },
+            "description": "Root endpoint - redirects to API documentation"
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "api",
+      "item": [
+        {
+          "name": "api_retrieve",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api"
+              ],
+              "variable": []
+            },
+            "description": "Enhanced API home view with documentation, stats, and discovery"
+          },
+          "response": []
+        },
+        {
+          "name": "api_analytics_retrieve",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/analytics/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "analytics"
+              ],
+              "variable": []
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "api_announcements_retrieve",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/announcements/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "announcements"
+              ],
+              "variable": []
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "api_auth_retrieve",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/auth/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "auth"
+              ],
+              "variable": []
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "api_auth_login_create",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/auth/login/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "auth",
+                "login"
+              ],
+              "variable": []
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "api_auth_logout_create",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/auth/logout/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "auth",
+                "logout"
+              ],
+              "variable": []
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "api_auth_password_reset_create",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/auth/password/reset/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "auth",
+                "password",
+                "reset"
+              ],
+              "variable": []
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "api_auth_password_reset_confirm_create",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/auth/password/reset/confirm/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "auth",
+                "password",
+                "reset",
+                "confirm"
+              ],
+              "variable": []
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "api_auth_profile_retrieve",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/auth/profile/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "auth",
+                "profile"
+              ],
+              "variable": []
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "api_auth_profile_update",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/auth/profile/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "auth",
+                "profile"
+              ],
+              "variable": []
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "api_auth_register_create",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/auth/register/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "auth",
+                "register"
+              ],
+              "variable": []
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "api_auth_token_refresh_create",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/auth/token/refresh/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "auth",
+                "token",
+                "refresh"
+              ],
+              "variable": []
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "api_auth_verify_otp_create",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/auth/verify-otp/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "auth",
+                "verify-otp"
+              ],
+              "variable": []
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "api_cbt_retrieve",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/cbt/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "cbt"
+              ],
+              "variable": []
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "api_cbt_retrieve_2",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/cbt/:exam_id/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "cbt",
+                ":exam_id"
+              ],
+              "variable": [
+                {
+                  "key": "exam_id",
+                  "value": "",
+                  "description": ""
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "api_cbt_start_create",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/cbt/:exam_id/start/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "cbt",
+                ":exam_id",
+                "start"
+              ],
+              "variable": [
+                {
+                  "key": "exam_id",
+                  "value": "",
+                  "description": ""
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "api_cbt_attempt_retrieve",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/cbt/attempt/:attempt_id/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "cbt",
+                "attempt",
+                ":attempt_id"
+              ],
+              "variable": [
+                {
+                  "key": "attempt_id",
+                  "value": "",
+                  "description": ""
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "api_cbt_attempt_answer_create",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/cbt/attempt/:attempt_id/answer/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "cbt",
+                "attempt",
+                ":attempt_id",
+                "answer"
+              ],
+              "variable": [
+                {
+                  "key": "attempt_id",
+                  "value": "",
+                  "description": ""
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "api_cbt_attempt_auto_submit_create",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/cbt/attempt/:attempt_id/auto-submit/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "cbt",
+                "attempt",
+                ":attempt_id",
+                "auto-submit"
+              ],
+              "variable": [
+                {
+                  "key": "attempt_id",
+                  "value": "",
+                  "description": ""
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "api_cbt_attempt_submit_create",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/cbt/attempt/:attempt_id/submit/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "cbt",
+                "attempt",
+                ":attempt_id",
+                "submit"
+              ],
+              "variable": [
+                {
+                  "key": "attempt_id",
+                  "value": "",
+                  "description": ""
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "api_cbt_course_retrieve",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/cbt/course/:course_id/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "cbt",
+                "course",
+                ":course_id"
+              ],
+              "variable": [
+                {
+                  "key": "course_id",
+                  "value": "",
+                  "description": ""
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "api_certificates_retrieve",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/certificates/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "certificates"
+              ],
+              "variable": []
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "api_courses_list",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/courses/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "courses"
+              ],
+              "variable": [],
+              "query": [
+                {
+                  "key": "category",
+                  "value": "",
+                  "description": "",
+                  "disabled": true
+                },
+                {
+                  "key": "is_published",
+                  "value": "",
+                  "description": "",
+                  "disabled": true
+                },
+                {
+                  "key": "ordering",
+                  "value": "",
+                  "description": "Which field to use when ordering the results.",
+                  "disabled": true
+                },
+                {
+                  "key": "page",
+                  "value": "",
+                  "description": "A page number within the paginated result set.",
+                  "disabled": true
+                },
+                {
+                  "key": "search",
+                  "value": "",
+                  "description": "A search term.",
+                  "disabled": true
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "api_courses_create",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/courses/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "courses"
+              ],
+              "variable": []
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"string\",\n  \"description\": \"string\",\n  \"thumbnail\": \"string\",\n  \"category\": 0,\n  \"price\": \"string\",\n  \"is_published\": true,\n  \"is_active\": true\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "api_courses_retrieve",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/courses/:id/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "courses",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "",
+                  "description": "A unique integer value identifying this course."
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "api_courses_update",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/courses/:id/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "courses",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "",
+                  "description": "A unique integer value identifying this course."
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"string\",\n  \"description\": \"string\",\n  \"thumbnail\": \"string\",\n  \"category\": 0,\n  \"price\": \"string\",\n  \"is_published\": true,\n  \"is_active\": true\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "api_courses_partial_update",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/courses/:id/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "courses",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "",
+                  "description": "A unique integer value identifying this course."
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"string\",\n  \"description\": \"string\",\n  \"thumbnail\": \"string\",\n  \"category\": 0,\n  \"price\": \"string\",\n  \"is_published\": true,\n  \"is_active\": true\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "api_courses_destroy",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/courses/:id/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "courses",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "",
+                  "description": "A unique integer value identifying this course."
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "api_courses_enroll_create",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/courses/:id/enroll/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "courses",
+                ":id",
+                "enroll"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "",
+                  "description": "A unique integer value identifying this course."
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"string\",\n  \"description\": \"string\",\n  \"thumbnail\": \"string\",\n  \"category\": 0,\n  \"price\": \"string\",\n  \"is_published\": true,\n  \"is_active\": true\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "api_courses_categories_list",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/courses/categories/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "courses",
+                "categories"
+              ],
+              "variable": [],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "",
+                  "description": "A page number within the paginated result set.",
+                  "disabled": true
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "api_courses_categories_create",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/courses/categories/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "courses",
+                "categories"
+              ],
+              "variable": []
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"string\",\n  \"description\": \"string\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "api_courses_categories_retrieve",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/courses/categories/:id/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "courses",
+                "categories",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "",
+                  "description": "A unique integer value identifying this category."
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "api_courses_categories_update",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/courses/categories/:id/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "courses",
+                "categories",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "",
+                  "description": "A unique integer value identifying this category."
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"string\",\n  \"description\": \"string\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "api_courses_categories_partial_update",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/courses/categories/:id/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "courses",
+                "categories",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "",
+                  "description": "A unique integer value identifying this category."
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"string\",\n  \"description\": \"string\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "api_courses_categories_destroy",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/courses/categories/:id/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "courses",
+                "categories",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "",
+                  "description": "A unique integer value identifying this category."
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "api_courses_lessons_list",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/courses/lessons/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "courses",
+                "lessons"
+              ],
+              "variable": [],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "",
+                  "description": "A page number within the paginated result set.",
+                  "disabled": true
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "api_courses_lessons_create",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/courses/lessons/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "courses",
+                "lessons"
+              ],
+              "variable": []
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"string\",\n  \"content\": \"string\",\n  \"order\": 0,\n  \"section\": 0\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "api_courses_lessons_retrieve",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/courses/lessons/:id/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "courses",
+                "lessons",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "",
+                  "description": "A unique integer value identifying this lesson."
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "api_courses_lessons_update",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/courses/lessons/:id/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "courses",
+                "lessons",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "",
+                  "description": "A unique integer value identifying this lesson."
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"string\",\n  \"content\": \"string\",\n  \"order\": 0,\n  \"section\": 0\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "api_courses_lessons_partial_update",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/courses/lessons/:id/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "courses",
+                "lessons",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "",
+                  "description": "A unique integer value identifying this lesson."
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"string\",\n  \"content\": \"string\",\n  \"order\": 0,\n  \"section\": 0\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "api_courses_lessons_destroy",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/courses/lessons/:id/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "courses",
+                "lessons",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "",
+                  "description": "A unique integer value identifying this lesson."
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "api_courses_my_courses_list",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/courses/my-courses/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "courses",
+                "my-courses"
+              ],
+              "variable": [],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "",
+                  "description": "A page number within the paginated result set.",
+                  "disabled": true
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "api_courses_my_courses_retrieve",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/courses/my-courses/:id/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "courses",
+                "my-courses",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "",
+                  "description": ""
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "api_courses_sections_list",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/courses/sections/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "courses",
+                "sections"
+              ],
+              "variable": [],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "",
+                  "description": "A page number within the paginated result set.",
+                  "disabled": true
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "api_courses_sections_create",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/courses/sections/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "courses",
+                "sections"
+              ],
+              "variable": []
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"string\",\n  \"order\": 0,\n  \"course\": 0\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "api_courses_sections_retrieve",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/courses/sections/:id/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "courses",
+                "sections",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "",
+                  "description": "A unique integer value identifying this course section."
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "api_courses_sections_update",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/courses/sections/:id/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "courses",
+                "sections",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "",
+                  "description": "A unique integer value identifying this course section."
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"string\",\n  \"order\": 0,\n  \"course\": 0\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "api_courses_sections_partial_update",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/courses/sections/:id/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "courses",
+                "sections",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "",
+                  "description": "A unique integer value identifying this course section."
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"string\",\n  \"order\": 0,\n  \"course\": 0\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "api_courses_sections_destroy",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/courses/sections/:id/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "courses",
+                "sections",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "",
+                  "description": "A unique integer value identifying this course section."
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "api_dashboard_retrieve",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/dashboard/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "dashboard"
+              ],
+              "variable": []
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "api_dashboard_timetable_retrieve",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/dashboard/timetable/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "dashboard",
+                "timetable"
+              ],
+              "variable": []
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "api_dashboard_timetable_create",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/dashboard/timetable/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "dashboard",
+                "timetable"
+              ],
+              "variable": []
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "api_dashboard_timetable_update",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/dashboard/timetable/:id/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "dashboard",
+                "timetable",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "",
+                  "description": ""
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "api_dashboard_timetable_destroy",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/dashboard/timetable/:id/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "dashboard",
+                "timetable",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "",
+                  "description": ""
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "api_dashboard_todos_retrieve",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/dashboard/todos/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "dashboard",
+                "todos"
+              ],
+              "variable": []
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "api_dashboard_todos_create",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/dashboard/todos/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "dashboard",
+                "todos"
+              ],
+              "variable": []
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "api_dashboard_todos_update",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/dashboard/todos/:id/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "dashboard",
+                "todos",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "",
+                  "description": ""
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "api_dashboard_todos_destroy",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/dashboard/todos/:id/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "dashboard",
+                "todos",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "",
+                  "description": ""
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "api_dashboard_todos_complete_create",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/dashboard/todos/:id/complete/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "dashboard",
+                "todos",
+                ":id",
+                "complete"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "",
+                  "description": ""
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "api_groups_retrieve",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/groups/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "groups"
+              ],
+              "variable": []
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "api_groups_create",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/groups/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "groups"
+              ],
+              "variable": []
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "api_groups_retrieve_2",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/groups/:id/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "groups",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "",
+                  "description": ""
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "api_groups_join_create",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/groups/:id/join/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "groups",
+                ":id",
+                "join"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "",
+                  "description": ""
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "api_groups_leave_create",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/groups/:id/leave/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "groups",
+                ":id",
+                "leave"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "",
+                  "description": ""
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "api_groups_members_progress_retrieve",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/groups/:id/members-progress/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "groups",
+                ":id",
+                "members-progress"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "",
+                  "description": ""
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "api_notifications_retrieve",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/notifications/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "notifications"
+              ],
+              "variable": []
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "api_payments_checkout_create",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/payments/checkout/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "payments",
+                "checkout"
+              ],
+              "variable": []
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "api_payments_history_retrieve",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/payments/history/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "payments",
+                "history"
+              ],
+              "variable": []
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "api_payments_webhook_paystack_create",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/payments/webhook/paystack/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "payments",
+                "webhook",
+                "paystack"
+              ],
+              "variable": []
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "api_pdfs_retrieve",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/pdfs/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "pdfs"
+              ],
+              "variable": []
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "api_pdfs_retrieve_2",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/pdfs/:id/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "pdfs",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "",
+                  "description": ""
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "api_pdfs_update_progress_create",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/pdfs/:id/update-progress/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "pdfs",
+                ":id",
+                "update-progress"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "",
+                  "description": ""
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "api_pdfs_course_retrieve",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/pdfs/course/:course_id/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "pdfs",
+                "course",
+                ":course_id"
+              ],
+              "variable": [
+                {
+                  "key": "course_id",
+                  "value": "",
+                  "description": ""
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "api_pdfs_my_progress_retrieve",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/pdfs/my-progress/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "pdfs",
+                "my-progress"
+              ],
+              "variable": []
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "api_pdfs_upload_create",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/pdfs/upload/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "pdfs",
+                "upload"
+              ],
+              "variable": []
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "api_support_retrieve",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/support/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "support"
+              ],
+              "variable": []
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "api_videos_retrieve",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/videos/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "videos"
+              ],
+              "variable": []
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "api_videos_retrieve_2",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/videos/:id/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "videos",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "",
+                  "description": ""
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "api_videos_approve_create",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/videos/:id/approve/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "videos",
+                ":id",
+                "approve"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "",
+                  "description": ""
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "api_videos_reject_create",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/videos/:id/reject/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "videos",
+                ":id",
+                "reject"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "",
+                  "description": ""
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "api_videos_update_progress_create",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/videos/:id/update-progress/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "videos",
+                ":id",
+                "update-progress"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "",
+                  "description": ""
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "api_videos_course_retrieve",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/videos/course/:course_id/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "videos",
+                "course",
+                ":course_id"
+              ],
+              "variable": [
+                {
+                  "key": "course_id",
+                  "value": "",
+                  "description": ""
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "api_videos_recently_watched_retrieve",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/videos/recently-watched/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "videos",
+                "recently-watched"
+              ],
+              "variable": []
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "api_videos_upload_create",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{access_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/api/videos/upload/",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "api",
+                "videos",
+                "upload"
+              ],
+              "variable": []
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost:8000",
+      "type": "string"
+    }
+  ]
+}

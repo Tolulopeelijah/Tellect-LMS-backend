@@ -1,5 +1,11 @@
 from rest_framework import serializers
-from .models import Video, VideoWatchProgress
+from .models import VideoSection, Video, VideoWatchProgress
+
+
+class VideoSectionSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = VideoSection
+        fields = ['id', 'title', 'order']
 
 
 class VideoSerializer(serializers.ModelSerializer):

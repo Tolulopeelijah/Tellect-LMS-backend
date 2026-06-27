@@ -24,7 +24,6 @@ THIRD_PARTY_APPS = [
     'rest_framework_simplejwt',
     'corsheaders',
     'drf_spectacular',
-    'drf_postman',
     'django_filters',
 ]
 
@@ -44,7 +43,7 @@ LOCAL_APPS = [
     'apps.support',
 ]
 
-INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS  + ['django_extensions'] 
+INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS  + ['django_extensions']+ ['drf_spectacular'] 
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

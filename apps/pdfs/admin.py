@@ -4,7 +4,7 @@ from .models import PDFMaterial, PDFReadProgress
 
 @admin.register(PDFMaterial)
 class PDFMaterialAdmin(admin.ModelAdmin):
-    list_display = ['title', 'course', 'is_downloadable', 'uploaded_by', 'created_at']
+    list_display = ['title', 'lesson', 'is_downloadable', 'uploaded_by', 'created_at']
 
 
 @admin.register(PDFReadProgress)
