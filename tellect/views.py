@@ -6,10 +6,11 @@ from rest_framework import status
 from django.conf import settings
 from django.utils import timezone
 import platform
-import psutil
-from datetime import datetime
 from django.db import connection
 from django.core.cache import cache
+from apps.authentication.models import User
+from apps.courses.models import Course, CourseEnrollment
+from apps.payments.models import Transaction
 
 class ApiHomeView(APIView):
     """
@@ -58,13 +59,13 @@ class ApiHomeView(APIView):
                 "max_limit": 100
             },
             "rate_limits": {
-                "anonymous": "100/hour",
-                "authenticated": "1000/hour"
+                "anonymous": settings.REST_FRAMEWORK['DEFAULT_THROTTLE_RATES']['anon'],
+                "authenticated": settings.REST_FRAMEWORK['DEFAULT_THROTTLE_RATES']['user'],
             },
             "links": {
                 "self": request.build_absolute_uri(),
-                "health_check": f"{api_base}health/",
-                "metrics": f"{api_base}metrics/",
+                "health_check": request.build_absolute_uri('/health/'),
+                "metrics": request.build_absolute_uri('/api/metrics/'),
             }
         }
         
@@ -230,11 +231,12 @@ class HealthCheckView(APIView):
     
     def check_cache(self):
         try:
-            cache.set("health_check", "ok", 5)
-            if cache.get("health_check") == "ok":
-                return {"status": "healthy", "backend": settings.CACHES['default']['BACKEND']}
+            cache.set('health_check', 'ok', 5)
+            if cache.get('health_check') == 'ok':
+                return {'status': 'healthy', 'backend': settings.CACHES['default']['BACKEND']}
+            return {'status': 'unhealthy', 'error': 'Cache read/write mismatch'}
         except Exception as e:
-            return {"status": "unhealthy", "error": str(e)}
+            return {'status': 'unhealthy', 'error': str(e)}
     
     def check_storage(self):
         try:
@@ -248,33 +250,26 @@ class HealthCheckView(APIView):
 
 class APIMetricsView(APIView):
     """
-    API metrics and usage statistics
+    API metrics derived from live database counts.
     """
     permission_classes = [AllowAny]
 
     def get(self, request):
-        # This would typically come from a metrics service like Prometheus
         return Response({
-            "uptime": self.get_uptime(),
-            "total_requests_today": 15420,
-            "active_users": {
-                "total": 342,
-                "students": 289,
-                "instructors": 48,
-                "admins": 5
+            'timestamp': timezone.now().isoformat(),
+            'users': {
+                'total': User.objects.filter(is_active=True).count(),
+                'students': User.objects.filter(role='STUDENT', is_active=True).count(),
+                'instructors': User.objects.filter(role='INSTRUCTOR', is_active=True).count(),
+                'admins': User.objects.filter(role='ADMIN', is_active=True).count(),
             },
-            "response_times": {
-                "average_ms": 245,
-                "p95_ms": 567,
-                "p99_ms": 892
+            'courses': {
+                'total': Course.objects.filter(is_active=True).count(),
+                'published': Course.objects.filter(is_active=True, is_published=True).count(),
             },
-            "endpoints": {
-                "total": 156,
-                "public": 89,
-                "protected": 67
-            }
+            'enrollments': CourseEnrollment.objects.count(),
+            'transactions': {
+                'successful': Transaction.objects.filter(status='SUCCESS').count(),
+                'pending': Transaction.objects.filter(status='PENDING').count(),
+            },
         })
-    
-    def get_uptime(self):
-        # This would actually calculate from process start time
-        return "15d 7h 23m"

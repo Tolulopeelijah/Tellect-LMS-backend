@@ -8,8 +8,8 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated, AllowAny
 from decouple import config
-import requests
 from apps.courses.models import Course, CourseEnrollment
+from apps.notifications.utils import create_notification
 from .models import Transaction
 from .serializers import CheckoutRequestSerializer, TransactionSerializer
 
@@ -86,8 +86,16 @@ class PaystackWebhookView(APIView):
                     transaction.status = 'SUCCESS'
                     transaction.save()
                     
-                    # Enroll user
-                    CourseEnrollment.objects.get_or_create(student=transaction.user, course=transaction.course)
+                    enrollment, _ = CourseEnrollment.objects.get_or_create(
+                        student=transaction.user,
+                        course=transaction.course,
+                    )
+                    create_notification(
+                        transaction.user,
+                        'Enrollment successful',
+                        f'You have been enrolled in {transaction.course.title}.',
+                        notification_type='success',
+                    )
                     
             except Transaction.DoesNotExist:
                 pass

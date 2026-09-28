@@ -6,6 +6,7 @@ class VideoAdmin(admin.ModelAdmin):
     list_display = ['title', 'lesson', 'status', 'uploaded_by', 'created_at']
     list_filter = ['status']
     search_fields = ['title']
+    autocomplete_fields = ['lesson']
 
 
 @admin.register(VideoWatchProgress)

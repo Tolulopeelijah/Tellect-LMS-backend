@@ -73,3 +73,5 @@ class LessonProgress(models.Model):
 
     class Meta:
         unique_together = ['enrollment', 'lesson']
+
+        
