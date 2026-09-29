@@ -1,3 +1,4 @@
+import os
 import django
 from pathlib import Path
 from decouple import config
@@ -7,9 +8,33 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = config('SECRET_KEY', default='django-insecure-tellect-lms-default-secret-key-change-in-production')
 
-DEBUG = config('DEBUG', default=True, cast=bool)
-#,10.88.33.9,192.168.18.7
-ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='localhost,192.168.18.6,192.168.18.4,172.20.10.7,0.0.0.0,127.0.0.1').split(',')
+DEBUG = config('DEBUG', default=False, cast=bool)
+
+# Render provides RENDER_EXTERNAL_HOSTNAME at runtime (e.g.
+# tellect-lms-backend.onrender.com). Include it automatically, plus a literal
+# fallback so production works even if the env var is missing. Keep local/dev
+# hosts from the ALLOWED_HOSTS env var.
+_base_hosts = [h.strip() for h in config('ALLOWED_HOSTS', default='localhost,192.168.18.6,192.168.18.4,172.20.10.7,0.0.0.0,127.0.0.1').split(',') if h.strip()]
+render_hostname = os.environ.get("RENDER_EXTERNAL_HOSTNAME")
+ALLOWED_HOSTS = [render_hostname] if render_hostname else []
+for _host in _base_hosts:
+    if _host not in ALLOWED_HOSTS:
+        ALLOWED_HOSTS.append(_host)
+if "tellect-lms-backend.onrender.com" not in ALLOWED_HOSTS:
+    ALLOWED_HOSTS.append("tellect-lms-backend.onrender.com")
+
+# Required on Render (behind a TLS-terminating proxy) so Django builds
+# correct https:// URLs and CSRF validation sees the right scheme.
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
+# Needed for POST/PUT/DELETE (session-auth admin, browsable API, etc.)
+CSRF_TRUSTED_ORIGINS = ["https://tellect-lms-backend.onrender.com"]
+_extra_csrf = [o.strip() for o in config('CSRF_TRUSTED_ORIGINS', default='').split(',') if o.strip()]
+for _origin in _extra_csrf:
+    if _origin not in CSRF_TRUSTED_ORIGINS:
+        CSRF_TRUSTED_ORIGINS.append(_origin)
+if render_hostname and f"https://{render_hostname}" not in CSRF_TRUSTED_ORIGINS:
+    CSRF_TRUSTED_ORIGINS.append(f"https://{render_hostname}")
 
 ENVIRONMENT = config('ENVIRONMENT', default='development')
 MAINTENANCE_MODE = config('MAINTENANCE_MODE', default=False, cast=bool)
@@ -53,6 +78,7 @@ INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -129,6 +155,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / 'staticfiles'
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
@@ -170,6 +197,7 @@ CORS_ALLOWED_ORIGINS = [
     'http://localhost:3000',
     'http://127.0.0.1:3000',
     'http://localhost:8080',
+    'https://tellect-lms-backend.onrender.com',
 ]
 # Flutter's web dev server binds a random port each run, so allow any
 # localhost/127.0.0.1 port in development. Tighten this for production.
@@ -178,6 +206,14 @@ CORS_ALLOWED_ORIGIN_REGEXES = [
     # r'^http://127\.0\.0\.1:\d+$',
 ]
 CORS_ALLOW_CREDENTIALS = True
+# Native mobile apps don't enforce CORS, but browser-based tests do.
+# Allow extra origins via env: CORS_EXTRA_ORIGINS=https://foo.com,https://bar.com
+_extra_cors = [o.strip() for o in config('CORS_EXTRA_ORIGINS', default='').split(',') if o.strip()]
+for _origin in _extra_cors:
+    if _origin not in CORS_ALLOWED_ORIGINS:
+        CORS_ALLOWED_ORIGINS.append(_origin)
+if render_hostname and f"https://{render_hostname}" not in CORS_ALLOWED_ORIGINS:
+    CORS_ALLOWED_ORIGINS.append(f"https://{render_hostname}")
 
 SPECTACULAR_SETTINGS = {
     'TITLE': 'Tellect LMS Back-End API',
