@@ -9,3 +9,6 @@ django-filter==24.3
 gunicorn
 whitenoise
 dj-database-url
+psycopg2-binary
+django-storages
+boto3
